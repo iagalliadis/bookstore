@@ -23,11 +23,11 @@ class Database:
 
     def delete(self,id):
         self.cur.execute("DELETE FROM book WHERE id=?",(id,))
-        conn.commit()
+        self.conn.commit()
 
     def update(self,id,title,author,year,isdn):
         self.cur.execute("UPDATE book SET title=?, author=?, year=?, isdn=? WHERE id=? ",(title, author, year, isdn,id))
-        conn.commit()
+        self.conn.commit()
 
     def __del__(self):
         self.conn.close()
